@@ -32,7 +32,16 @@ public class PauseMenu : MonoBehaviour {
 		Time.timeScale = 1f;
 	}
 
-	public void ReturnToMain(){
-		SceneManager.LoadScene (mainMenuScene);
+
+
+
+	public void Quit () 
+	{
+		#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+		#else
+		Application.Quit();
+		#endif
 	}
+
 }
